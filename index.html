@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Desafio - Entendiendo cómo se comportan nuestros clientes</title>
+</head>
+
+<body>
+    <!-- NavBar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-static">
+        <div class="container">
+            <a class="navbar-brand" href="#">ImDamian</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-center" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" href="#">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Section Header -->
+    <section class="container-fluid py-3 bg-dark text-white">
+        <h1 class="text-center container">Desafio - Operaciones en una tabla</h1>
+        <h5 class="text-center mt-3 text-success">Modulo 5</h5>
+    </section>
+    <!-- Section Columns-->
+    <section class="container-fluid row">
+        <!-- PDF -->
+        <div class="col-12 col-sm-8 col-lg-6 mx-auto">
+            <embed src="assets/others/03_d_Desafío_-_Operaciones_en_una_tabla.pdf" type="application/pdf"
+                class="w-100 d-block mx-auto my-3 ">
+        </div>
+        <!-- body -->
+        <div class="col-lg-6">
+            <h2 class="text-center py-3 my-3 bg-dark text-success rounded-pill">Desarrollo de requerimientos</h2>
+            <div class="container">
+                <h2 class="my-3 text-success text-center">Modelo de datos</h2>
+                <img src="assets/img/modelo_de_datos.PNG" alt="" class="d-block mx-auto mb-3">
+            </div>
+            <!-- Accordion -->
+            <div class="accordion">
+                <!-- Item 01 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Parte 1: Creación, inserciones, modificaciones y eliminaciones en la tabla “Posts”
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                <!-- crear base de datos -->
+                                <li>Crear una base de datos con nombre “Posts”.</li>
+                                <pre><p class="sql-coment">-- creando base de datos</p><code>CREATE DATABASE Posts;</code></pre>
+                                <!-- crear tabla -->
+                                <li>Crear una tabla “post”, con los atributos id, nombre de usuario, fecha de creación,contenido y descripción.</li>
+                                <pre><p class="sql-coment">-- creando la tabla</p><code>CREATE TABLE post(<br>id SERIAL PRIMARY KEY,<br>nombre_de_usuario VARCHAR(50),<br>fecha_de_creacion DATE,<br>contenido VARCHAR(50),<br>descripcion VARCHAR(100)<br>);</code><p class="sql-coment">-- verificando la tabla</p><code>SELECT * FROM post;</code></pre>
+                                <img src="assets/img/01tabla_post.PNG" alt="">
+                                <li>Insertar 3 post, 2 para el usuario "Pamela" y uno para "Carlos".</li>
+                                <pre><p class="sql-coment">-- insertando registros</p><code>INSERT INTO post(<br>nombre_de_usuario,<br>fecha_de_creacion,<br>contenido,<br>descripcion)<br><br>VALUES ('Pamela', '2022-03-11', 'contenido 1er post Pamela', '1er post Pamela'),<br>('Pamela', '2022-03-11', 'contenido 2do post Pamela', '2do post Pamela'),<br>('Carlos', '2022-03-11', 'contenido 1er post Carlos', '1er post Carlos');</code><p class="sql-coment">-- verificando insercion de registros</p><code>SELECT * FROM post;</code></pre>
+                                <img src="assets/img/insert_post.PNG" alt="">
+                                <li>Modificar la tabla post, agregando la columna título.</li>
+                                <pre><code></code>ALTER TABLE post ADD titulo VARCHAR(30);<p class="sql-coment">-- verificando nueva columna</p><code>SELECT * FROM post;</code></pre>
+                                <img src="assets/img/nueva_columna.PNG" alt="">
+                                <li>Agregar título a las publicaciones ya ingresadas.</li>
+                                <pre><code></code>UPDATE post SET titulo = 'Post 01' WHERE id = 1;<br>UPDATE post SET titulo = 'Post 02' WHERE id = 2;<br>UPDATE post SET titulo = 'Post 03' WHERE id = 3;<p class="sql-coment">-- verificando updates</p><code>SELECT * FROM post;</code></pre>
+                                <img src="assets/img/publicaciones_ya_ingresadas.PNG" alt="">
+                                <li>Insertar 2 post para el usuario "Pedro".</li>
+                                <pre><code>INSERT INTO post(<br>nombre_de_usuario,<br>fecha_de_creacion,<br>contenido,<br>descripcion,<br>titulo)<br><br>VALUES ('Pedro', '2022-03-11', 'contenido 1er post Pedro', '1er post Pedro', 'Post 04'),<br>('Pedro', '2022-03-11', 'contenido 2do post Pedro', '2do post Pedro', 'Post 05');<br></code><p class="sql-coment">-- verificando insercion de registros</p><code>SELECT * FROM post;</code></pre>
+                                <img src="assets/img/post_pedro.PNG" alt="">
+                                <li>Eliminar el post de Carlos.</li>
+                                <pre><code>DELETE FROM post WHERE nombre_de_usuario = 'Carlos';</code><p class="sql-coment">-- verificando eliminacion de registro</p>SELECT * FROM post;</pre>
+                                <img src="assets/img/delete_carlos_post.PNG" alt="">
+                                <li>Ingresar un nuevo post para el usuario "Carlos".</li>
+                                <pre><code>INSERT INTO post(<br>nombre_de_usuario,<br>fecha_de_creacion,<br>contenido,<br>descripcion,<br>titulo)<br><br>VALUES ('Carlos', '2022-03-11', 'contenido nuevo post Carlos', 'nuevo post Carlos', 'Post 06');</code><p class="sql-coment">-- verificando nuevo post</p>SELECT * FROM post;</pre>
+                                <img src="assets/img/nuevo_post_carlos.PNG" alt="">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 02 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed bg-dark text-white" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            Parte 2: Creación e inserciones en la tabla “comentarios”
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>producto: producto9</li>
+                                <li>cantidad: 5</li>
+                                <li>fecha: fecha del sistema</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comentario -->
+    <section class="container pt-5">
+        <h5 class="text-info"><strong>Nota: </strong>puntos realizados del 1 al 3.</h5>
+    </section>
+
+
+    <!-- Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+
+    <!--  -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

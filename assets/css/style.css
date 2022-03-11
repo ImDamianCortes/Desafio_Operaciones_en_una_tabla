@@ -1,0 +1,50 @@
+body {
+  background-color: rgba(128, 128, 128, 0.041);
+}
+embed {
+  height: 800px;
+}
+
+.sql-coment {
+  color: rgb(25, 159, 25);
+  font-weight: 400;
+}
+.sql-error {
+  color: red;
+  font-weight: 400;
+}
+
+pre {
+    display: block;
+    background-color: rgb(233, 233, 233);
+    color: rgb(163, 23, 202);
+    font-size: medium;
+    font-weight: 500;
+    margin: 1em 0px ;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 7px;
+}
+
+img {
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+p {
+  margin-top: 15px;
+}
+.accordion {
+  border: 0px transparent !important;
+  background-color: transparent;
+}
+.accordion-button{
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
