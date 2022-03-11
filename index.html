@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <title>Desafio - Entendiendo cómo se comportan nuestros clientes</title>
+    <title>Desafio - Operaciones en una tabla</title>
 </head>
 
 <body>
@@ -115,9 +115,22 @@
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul>
-                                <li>producto: producto9</li>
-                                <li>cantidad: 5</li>
-                                <li>fecha: fecha del sistema</li>
+                                <!-- li -->
+                                <li>Crear una nueva tabla llamada “comentarios”, con los atributos id, fecha, hora de creación y contenido, que se relacione con la tabla posts.</li>
+                                <pre><code>CREATE TABLE comentarios(<br>id SERIAL PRIMARY KEY,<br>post_id INT,<br>fecha DATE,<br>hora_de_creacion TIME,<br>contenido VARCHAR(50),<br>FOREIGN KEY (post_id) REFERENCES post(id)<br>);<p class="sql-coment">-- verificando tabla comentarios</p>SELECT * FROM comentario;</code></pre>
+                                <img src="assets/img/tabla_comentarios.PNG" alt="">
+                                <!-- li -->
+                                <li>Crear 2 comentarios para el post de "Pamela" y 4 para "Carlos".</li>
+                                <pre><code>INSERT INTO comentarios(<br>post_id,<br>fecha,<br>hora_de_creacion,<br>contenido)<br><br>VALUES (01, '2022-03-11', '02:00:00', 'comentario 01'),<br>(02, '2022-03-11', '02:00:00', 'comentario 02'),<br>(06, '2022-03-11', '02:00:00', 'comentario 01'),<br>(06, '2022-03-11', '02:00:00', 'comentario 02'),<br>(06, '2022-03-11', '02:00:00', 'comentario 03'),<br>(06, '2022-03-11', '02:00:00', 'comentario 04');<p class="sql-coment">-- verificando tabla comentarios</p>SELECT * FROM comentario;</code></pre>
+                                <img src="assets/img/comentarios_pamela_carlos.PNG" alt="">
+                                <!-- li -->
+                                <li>Crear un nuevo post para "Margarita".</li>
+                                <pre><code>INSERT INTO post(<br>nombre_de_usuario,<br>fecha_de_creacion,<br>contenido,<br>descripcion,<br>titulo) <br><br>VALUES ('Margarita', '2022-03-11', 'contenido nuevo post Margarita', 'nuevo post Margarita', 'Post 07');<p class="sql-coment">-- verificando nuevo post</p>SELECT * FROM post;</code></pre>
+                                <img src="assets/img/nuevo_post_margarita.PNG" alt="">
+                                <!-- li -->
+                                <li>Ingresar 5 comentarios para el post de Margarita.</li>
+                                <pre><code>INSERT INTO comentarios(<br>post_id,<br>fecha,<br>hora_de_creacion,<br>contenido) <br><br>VALUES (07, '2022-03-11', '02:00:00', 'comentario 01'),<br>(07, '2022-03-11', '02:05:00', 'comentario 02'),<br>(07, '2022-03-11', '02:16:00', 'comentario 03'),<br>(07, '2022-03-11', '02:19:00', 'comentario 04'),<br>(07, '2022-03-11', '02:22:00', 'comentario 05');<p class="sql-coment">-- verificando tabla comentarios</p>SELECT * FROM comentarios WHERE post_id = 7;</code></pre>
+                                <img src="assets/img/comentarios_margarita.PNG" alt="">
                             </ul>
                         </div>
                     </div>

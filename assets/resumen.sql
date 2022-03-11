@@ -173,6 +173,18 @@ VALUES (01, '2022-03-11', '02:00:00', 'comentario 01'),
 (06, '2022-03-11', '02:00:00', 'comentario 03'),
 (06, '2022-03-11', '02:00:00', 'comentario 04');
 
+SELECT * FROM comentarios;
+
+ id | post_id |   fecha    | hora_de_creacion |   contenido
+----+---------+------------+------------------+---------------
+  1 |       1 | 2022-03-11 | 02:00:00         | comentario 01
+  2 |       2 | 2022-03-11 | 02:00:00         | comentario 02
+  3 |       6 | 2022-03-11 | 02:00:00         | comentario 01
+  4 |       6 | 2022-03-11 | 02:00:00         | comentario 02
+  5 |       6 | 2022-03-11 | 02:00:00         | comentario 03
+  6 |       6 | 2022-03-11 | 02:00:00         | comentario 04
+(6 filas)
+
 3. Crear un nuevo post para "Margarita".
 
 INSERT INTO post(
